@@ -1,5 +1,4 @@
-// Require the following npm packages inside of the server.js file:
-//    * express
+// Requiring express
 
 var express = require("express");
 

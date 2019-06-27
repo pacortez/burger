@@ -1,10 +1,5 @@
-// Inside the `burgers_controller.js` file, import the following:
-
-//    * Express
-//    * `burger.js`
-//    * 
-//    * 
-//    4. Create the `router` for the app, and export the `router` at the end of your file.
+// Importing: Express, `burger.js`
+// Creating the router for the app, and exporting the `router` at the end.
 
 var express = require("express");
 var router = express.Router();
@@ -34,7 +29,12 @@ router.put("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
 
     console.log("Condition", condition);
-
+    if (req.body.devoured === "false") {
+        req.body.devoured = 0;
+    } 
+    if (req.body.devoured === "true") {
+        req.body.devoured = 1;
+    }
     burger.update({
         devoured: req.body.devoured
     }, condition, function(result) {
